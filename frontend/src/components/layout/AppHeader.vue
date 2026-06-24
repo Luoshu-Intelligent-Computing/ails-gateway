@@ -128,7 +128,7 @@
 
                 <a
                   v-if="authStore.isAdmin"
-                  href="https://github.com/Wei-Shaw/sub2api"
+                  :href="AILS_REPOSITORY_URL"
                   target="_blank"
                   rel="noopener noreferrer"
                   @click="closeDropdown"
@@ -222,6 +222,7 @@ import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue'
 import SubscriptionProgressMini from '@/components/common/SubscriptionProgressMini.vue'
 import AnnouncementBell from '@/components/common/AnnouncementBell.vue'
 import Icon from '@/components/icons/Icon.vue'
+import { AILS_REPOSITORY_URL } from '@/constants/branding'
 
 const router = useRouter()
 const route = useRoute()

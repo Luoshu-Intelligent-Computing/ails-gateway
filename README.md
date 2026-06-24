@@ -1,5 +1,7 @@
 # Sub2API
 
+> AILS Gateway is the AILS (洛书智算) fork of Sub2API for a unified model gateway. This fork keeps branding and UI defaults in a small frontend layer while preserving upstream Sub2API behavior and update compatibility. See [AILS branding notes](docs/ails-branding.md).
+
 <div align="center">
 
 [![Go](https://img.shields.io/badge/Go-1.25.7-00ADD8.svg)](https://golang.org/)
