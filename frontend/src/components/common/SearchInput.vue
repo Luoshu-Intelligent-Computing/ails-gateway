@@ -1,12 +1,12 @@
 <template>
   <div class="relative w-full">
     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-      <Icon name="search" size="md" class="text-gray-400" />
+      <Icon name="search" size="md" class="text-primary-400" />
     </div>
     <input
       :value="modelValue"
       type="text"
-      class="input pl-10"
+      class="input border-blue-100 bg-white/95 pl-10 shadow-sm placeholder:text-slate-400 hover:border-blue-200 dark:border-dark-600 dark:bg-dark-800"
       :placeholder="placeholder"
       @input="handleInput"
     />

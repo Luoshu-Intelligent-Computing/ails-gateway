@@ -1,13 +1,13 @@
 <template>
   <div v-if="!isDesktopViewport" class="space-y-3">
     <template v-if="loading">
-      <div v-for="i in 5" :key="i" class="rounded-lg border border-gray-200 bg-white p-4 dark:border-dark-700 dark:bg-dark-900">
+      <div v-for="i in 5" :key="i" class="rounded-xl border border-blue-100 bg-white/95 p-4 shadow-sm dark:border-dark-700 dark:bg-dark-900">
         <div class="space-y-3">
           <div v-for="column in dataColumns" :key="column.key" class="flex justify-between">
             <div class="h-4 w-20 animate-pulse rounded bg-gray-200 dark:bg-dark-700"></div>
             <div class="h-4 w-32 animate-pulse rounded bg-gray-200 dark:bg-dark-700"></div>
           </div>
-          <div v-if="hasActionsColumn" class="border-t border-gray-200 pt-3 dark:border-dark-700">
+          <div v-if="hasActionsColumn" class="border-t border-blue-100 pt-3 dark:border-dark-700">
             <div class="h-8 w-full animate-pulse rounded bg-gray-200 dark:bg-dark-700"></div>
           </div>
         </div>
@@ -15,13 +15,13 @@
     </template>
 
     <template v-else-if="!data || data.length === 0">
-      <div class="rounded-lg border border-gray-200 bg-white p-12 text-center dark:border-dark-700 dark:bg-dark-900">
+      <div class="rounded-xl border border-blue-100 bg-white/95 p-12 text-center shadow-sm dark:border-dark-700 dark:bg-dark-900">
         <slot name="empty">
           <div class="flex flex-col items-center">
             <Icon
               name="inbox"
               size="xl"
-              class="mb-4 h-12 w-12 text-gray-400 dark:text-dark-500"
+              class="mb-4 h-12 w-12 text-primary-300 dark:text-dark-500"
             />
             <p class="text-lg font-medium text-gray-900 dark:text-gray-100">
               {{ t('empty.noData') }}
@@ -35,7 +35,7 @@
       <div
         v-for="(row, index) in sortedData"
         :key="resolveRowKey(row, index)"
-        class="rounded-lg border border-gray-200 bg-white p-4 dark:border-dark-700 dark:bg-dark-900"
+        class="rounded-xl border border-blue-100 bg-white/95 p-4 shadow-sm dark:border-dark-700 dark:bg-dark-900"
       >
         <div class="space-y-3">
           <div
@@ -43,7 +43,7 @@
             :key="column.key"
             class="flex items-start justify-between gap-4"
           >
-            <span class="text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-dark-400">
+            <span class="text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-dark-400">
               {{ column.label }}
             </span>
             <div class="text-right text-sm text-gray-900 dark:text-gray-100">
@@ -52,7 +52,7 @@
               </slot>
             </div>
           </div>
-          <div v-if="hasActionsColumn" class="border-t border-gray-200 pt-3 dark:border-dark-700">
+          <div v-if="hasActionsColumn" class="border-t border-blue-100 pt-3 dark:border-dark-700">
             <slot name="cell-actions" :row="row" :value="row['actions']" :expanded="actionsExpanded"></slot>
           </div>
         </div>
@@ -69,17 +69,17 @@
       'is-scrollable': isScrollable
     }"
   >
-    <table class="w-full min-w-max divide-y divide-gray-200 dark:divide-dark-700">
-      <thead class="table-header bg-gray-50 dark:bg-dark-800">
+    <table class="w-full min-w-max divide-y divide-blue-100 dark:divide-dark-700">
+      <thead class="table-header bg-blue-50/80 dark:bg-dark-800">
         <tr>
           <th
             v-for="(column, index) in columns"
             :key="column.key"
             scope="col"
             :class="[
-              'sticky-header-cell py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-dark-400',
+              'sticky-header-cell py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-dark-400',
               getAdaptivePaddingClass(),
-              { 'cursor-pointer hover:bg-gray-100 dark:hover:bg-dark-700': column.sortable },
+              { 'cursor-pointer hover:bg-blue-100/70 dark:hover:bg-dark-700': column.sortable },
               getStickyColumnClass(column, index),
               column.class
             ]"
@@ -118,7 +118,7 @@
           </th>
         </tr>
       </thead>
-      <tbody class="table-body divide-y divide-gray-200 bg-white dark:divide-dark-700 dark:bg-dark-900">
+      <tbody class="table-body divide-y divide-blue-50 bg-white dark:divide-dark-700 dark:bg-dark-900">
         <!-- Loading skeleton -->
         <tr v-if="loading" v-for="i in 5" :key="i">
           <td v-for="column in columns" :key="column.key" :class="['whitespace-nowrap py-4', getAdaptivePaddingClass()]">
@@ -139,7 +139,7 @@
                 <Icon
                   name="inbox"
                   size="xl"
-                  class="mb-4 h-12 w-12 text-gray-400 dark:text-dark-500"
+                  class="mb-4 h-12 w-12 text-primary-300 dark:text-dark-500"
                 />
                 <p class="text-lg font-medium text-gray-900 dark:text-gray-100">
                   {{ t('empty.noData') }}
@@ -162,13 +162,13 @@
             :data-row-id="resolveRowKey(sortedData[virtualRow.index], virtualRow.index)"
             :data-index="virtualRow.index"
             :ref="measureElement"
-            class="hover:bg-gray-50 dark:hover:bg-dark-800"
+            class="hover:bg-blue-50/55 dark:hover:bg-dark-800"
           >
             <td
               v-for="(column, colIndex) in columns"
               :key="column.key"
               :class="[
-                'whitespace-nowrap py-4 text-sm text-gray-900 dark:text-gray-100',
+                'whitespace-nowrap py-4 text-sm text-slate-800 dark:text-gray-100',
                 getAdaptivePaddingClass(),
                 getStickyColumnClass(column, colIndex),
                 column.class
@@ -748,7 +748,7 @@ defineExpose({
   position: sticky;
   top: 0;
   z-index: 200;
-  background-color: rgb(249 250 251);
+  background-color: rgb(239 246 255 / 0.86);
 }
 
 .dark .table-wrapper .table-header {
@@ -766,7 +766,7 @@ defineExpose({
   position: sticky;
   top: 0;
   z-index: 210; /* 必须高于所有表体内容 */
-  background-color: rgb(249 250 251);
+  background-color: rgb(239 246 255 / 0.92);
 }
 
 .dark .sticky-header-cell {
@@ -806,7 +806,7 @@ defineExpose({
 
 /* 表体 sticky 列背景 */
 tbody .sticky-col {
-  background-color: white;
+  background-color: rgb(255 255 255 / 0.98);
 }
 
 .dark tbody .sticky-col {
@@ -815,7 +815,7 @@ tbody .sticky-col {
 
 /* hover 状态保持 */
 tbody tr:hover .sticky-col {
-  background-color: rgb(249 250 251);
+  background-color: rgb(239 246 255 / 0.72);
 }
 
 .dark tbody tr:hover .sticky-col {
@@ -832,7 +832,7 @@ tbody tr:hover .sticky-col {
   bottom: 0;
   width: 10px;
   transform: translateX(100%);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.08), transparent);
+  background: linear-gradient(to right, rgba(37, 99, 235, 0.1), transparent);
   pointer-events: none;
 }
 
@@ -845,7 +845,7 @@ tbody tr:hover .sticky-col {
   bottom: 0;
   width: 10px;
   transform: translateX(100%);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.08), transparent);
+  background: linear-gradient(to right, rgba(37, 99, 235, 0.1), transparent);
   pointer-events: none;
 }
 
@@ -858,7 +858,7 @@ tbody tr:hover .sticky-col {
   bottom: 0;
   width: 10px;
   transform: translateX(-100%);
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.08), transparent);
+  background: linear-gradient(to left, rgba(37, 99, 235, 0.1), transparent);
   pointer-events: none;
 }
 
@@ -893,7 +893,7 @@ tbody tr:hover .sticky-col {
 }
 
 .table-wrapper::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.03) !important;
+  background-color: rgba(219, 234, 254, 0.5) !important;
   border-radius: 6px !important;
   margin: 0 4px !important;
 }
@@ -903,14 +903,14 @@ tbody tr:hover .sticky-col {
 
 /* 常驻、不透明的滑块，无视鼠标是否 hover 都在那！ */
 .table-wrapper::-webkit-scrollbar-thumb {
-  background-color: rgba(107, 114, 128, 0.75) !important; 
+  background-color: rgba(96, 165, 250, 0.72) !important;
   border-radius: 6px !important;
   border: 2px solid transparent !important;
   background-clip: padding-box !important;
   -webkit-appearance: none !important;
 }
 .table-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(75, 85, 99, 0.9) !important;
+  background-color: rgba(37, 99, 235, 0.82) !important;
 }
 
 .dark .table-wrapper::-webkit-scrollbar-thumb {
@@ -924,7 +924,7 @@ tbody tr:hover .sticky-col {
 @supports (-moz-appearance:none) {
   .table-wrapper {
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.03) !important;
+    scrollbar-color: rgba(96, 165, 250, 0.72) rgba(219, 234, 254, 0.5) !important;
   }
   .dark .table-wrapper {
     scrollbar-color: rgba(75, 85, 99, 0.5) rgba(255, 255, 255, 0.05) !important;
