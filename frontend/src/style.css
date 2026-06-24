@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply bg-gray-50 text-gray-900 dark:bg-dark-950 dark:text-gray-100;
+    @apply bg-blue-50/40 text-gray-900 dark:bg-dark-950 dark:text-gray-100;
     @apply min-h-screen;
   }
 
@@ -75,9 +75,9 @@
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-500 to-primary-600;
+    @apply bg-gradient-to-r from-primary-600 to-primary-500;
     @apply text-white shadow-md shadow-primary-500/25;
-    @apply hover:from-primary-600 hover:to-primary-700 hover:shadow-lg hover:shadow-primary-500/30;
+    @apply hover:from-primary-700 hover:to-primary-600 hover:shadow-lg hover:shadow-primary-500/30;
     @apply dark:shadow-primary-500/20;
   }
 
@@ -199,14 +199,14 @@
 
   /* ============ 玻璃效果 ============ */
   .glass {
-    @apply bg-white/80 backdrop-blur-xl dark:bg-dark-800/80;
+    @apply bg-white/[0.86] backdrop-blur-xl dark:bg-dark-800/[0.86];
   }
 
   .glass-card {
-    @apply bg-white/70 dark:bg-dark-800/70;
+    @apply bg-white/[0.82] dark:bg-dark-800/[0.76];
     @apply backdrop-blur-xl;
     @apply rounded-2xl;
-    @apply border border-white/20 dark:border-dark-700/50;
+    @apply border border-blue-100/80 dark:border-dark-700/50;
     @apply shadow-glass;
     @apply transition-all duration-300;
   }
@@ -215,7 +215,7 @@
   .card {
     @apply bg-white dark:bg-dark-800/50;
     @apply rounded-2xl;
-    @apply border border-gray-100 dark:border-dark-700/50;
+    @apply border border-blue-100/70 dark:border-dark-700/50;
     @apply shadow-card;
     @apply transition-all duration-300;
   }
@@ -226,9 +226,9 @@
   }
 
   .card-glass {
-    @apply bg-white/70 dark:bg-dark-800/70;
+    @apply bg-white/[0.84] dark:bg-dark-800/[0.76];
     @apply backdrop-blur-xl;
-    @apply border border-white/20 dark:border-dark-700/50;
+    @apply border border-blue-100/80 dark:border-dark-700/50;
     @apply shadow-glass;
   }
 
@@ -306,7 +306,7 @@
   .table th {
     @apply px-4 py-3 text-left font-medium;
     @apply text-gray-600 dark:text-dark-300;
-    @apply bg-gray-50 dark:bg-dark-800/50;
+    @apply bg-blue-50/60 dark:bg-dark-800/50;
     @apply border-b border-gray-200 dark:border-dark-700;
   }
 
@@ -322,7 +322,7 @@
 
   .table tbody tr {
     @apply transition-colors duration-150;
-    @apply hover:bg-gray-50 dark:hover:bg-dark-800/30;
+    @apply hover:bg-blue-50/50 dark:hover:bg-dark-800/30;
   }
 
   /* ============ 徽章样式 ============ */
@@ -360,7 +360,7 @@
     @apply absolute z-50;
     @apply bg-white dark:bg-dark-800;
     @apply rounded-xl;
-    @apply border border-gray-200 dark:border-dark-700;
+    @apply border border-blue-100 dark:border-dark-700;
     @apply shadow-lg;
     @apply py-1;
     @apply origin-top-right animate-scale-in;
@@ -369,7 +369,7 @@
   .dropdown-item {
     @apply px-4 py-2 text-sm;
     @apply text-gray-700 dark:text-gray-300;
-    @apply hover:bg-gray-100 dark:hover:bg-dark-700;
+    @apply hover:bg-blue-50 dark:hover:bg-dark-700;
     @apply cursor-pointer transition-colors;
     @apply flex items-center gap-2;
   }
@@ -526,8 +526,8 @@
   /* ============ 侧边栏 ============ */
   .sidebar {
     @apply fixed inset-y-0 left-0 z-40;
-    @apply w-64 bg-white dark:bg-dark-900;
-    @apply border-r border-gray-200 dark:border-dark-800;
+    @apply w-64 bg-white/[0.92] backdrop-blur-xl dark:bg-dark-900/95;
+    @apply border-r border-blue-100/80 dark:border-dark-800;
     @apply flex flex-col;
     @apply transition-transform duration-300;
     transition-property: width, transform;
@@ -536,7 +536,7 @@
   .sidebar-header {
     @apply h-16 px-6;
     @apply flex items-center gap-3;
-    @apply border-b border-gray-100 dark:border-dark-800;
+    @apply border-b border-blue-100/80 dark:border-dark-800;
     transition:
       padding 0.2s ease,
       gap 0.2s ease;
@@ -550,17 +550,18 @@
     @apply flex items-center gap-3 rounded-xl py-2.5;
     @apply overflow-hidden;
     @apply text-sm font-medium;
-    @apply text-gray-600 dark:text-dark-300;
+    @apply text-slate-600 dark:text-dark-300;
     @apply transition-all duration-200;
-    @apply hover:bg-gray-100 dark:hover:bg-dark-800;
-    @apply hover:text-gray-900 dark:hover:text-white;
+    @apply hover:bg-blue-50/80 dark:hover:bg-dark-800;
+    @apply hover:text-slate-950 dark:hover:text-white;
     padding-left: 1.0625rem;
     padding-right: 0.875rem;
   }
 
   .sidebar-link-active {
     @apply bg-primary-50 dark:bg-primary-900/20;
-    @apply text-primary-600 dark:text-primary-400;
+    @apply text-primary-700 dark:text-primary-400;
+    @apply shadow-sm ring-1 ring-primary-100 dark:ring-primary-900/30;
     @apply hover:bg-primary-100 dark:hover:bg-primary-900/30;
   }
 
@@ -737,12 +738,12 @@
 @layer utilities {
   /* 文字渐变 */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-700 via-primary-600 to-accent-600 bg-clip-text text-transparent;
   }
 
   /* 玻璃效果 */
   .glass {
-    @apply bg-white/80 backdrop-blur-xl dark:bg-dark-800/80;
+    @apply bg-white/[0.86] backdrop-blur-xl dark:bg-dark-800/[0.86];
   }
 
   /* 隐藏滚动条 */
