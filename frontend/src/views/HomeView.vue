@@ -15,7 +15,7 @@
   <!-- Default Home Page -->
   <div
     v-else
-    class="relative flex min-h-screen flex-col overflow-hidden bg-slate-950"
+    class="relative flex min-h-screen flex-col overflow-hidden bg-gradient-to-b from-white via-cyan-50 to-sky-50"
   >
     <!-- Hero visual -->
     <div class="pointer-events-none absolute inset-x-0 top-0 h-[760px] min-h-screen overflow-hidden">
@@ -23,13 +23,13 @@
         src="/ails-hero.jpg"
         alt=""
         aria-hidden="true"
-        class="h-full w-full object-cover object-center"
+        class="h-full w-full object-cover object-center opacity-95"
       />
-      <div class="absolute inset-0 bg-slate-950/30"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/78 to-slate-950/18"></div>
-      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-slate-950"></div>
+      <div class="absolute inset-0 bg-white/10"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-white via-white/72 to-white/10"></div>
+      <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent via-cyan-50/80 to-sky-50"></div>
     </div>
-    <div class="pointer-events-none absolute inset-x-0 top-[720px] bottom-0 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
+    <div class="pointer-events-none absolute inset-x-0 top-[720px] bottom-0 bg-gradient-to-b from-sky-50 via-white to-white"></div>
 
     <!-- Header -->
     <header class="relative z-20 px-6 py-4">
@@ -52,7 +52,7 @@
             :href="docUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+            class="rounded-lg p-2 text-slate-600 transition-colors hover:bg-white/70 hover:text-slate-950"
             :title="t('home.viewDocs')"
           >
             <Icon name="book" size="md" />
@@ -61,7 +61,7 @@
           <!-- Theme Toggle -->
           <button
             @click="toggleTheme"
-            class="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+            class="rounded-lg p-2 text-slate-600 transition-colors hover:bg-white/70 hover:text-slate-950"
             :title="isDark ? t('home.switchToLight') : t('home.switchToDark')"
           >
             <Icon v-if="isDark" name="sun" size="md" />
@@ -72,16 +72,16 @@
           <router-link
             v-if="isAuthenticated"
             :to="dashboardPath"
-            class="inline-flex items-center gap-1.5 rounded-full bg-white py-1 pl-1 pr-2.5 transition-colors hover:bg-slate-100"
+            class="inline-flex items-center gap-1.5 rounded-full bg-slate-950 py-1 pl-1 pr-2.5 shadow-sm transition-colors hover:bg-slate-800"
           >
             <span
               class="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-primary-400 to-primary-600 text-[10px] font-semibold text-white"
             >
               {{ userInitial }}
             </span>
-            <span class="text-xs font-medium text-slate-950">{{ t('home.dashboard') }}</span>
+            <span class="text-xs font-medium text-white">{{ t('home.dashboard') }}</span>
             <svg
-              class="h-3 w-3 text-slate-500"
+              class="h-3 w-3 text-slate-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -97,7 +97,7 @@
           <router-link
             v-else
             to="/login"
-            class="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-950 transition-colors hover:bg-slate-100"
+            class="inline-flex items-center rounded-full bg-slate-950 px-3 py-1 text-xs font-medium text-white shadow-sm transition-colors hover:bg-slate-800"
           >
             {{ t('home.login') }}
           </router-link>
@@ -113,11 +113,11 @@
           <!-- Left: Text Content -->
           <div class="flex-1 text-center lg:text-left">
             <h1
-              class="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl"
+              class="mb-4 text-4xl font-bold text-slate-950 md:text-5xl lg:text-6xl"
             >
               {{ siteName }}
             </h1>
-            <p class="mb-8 max-w-xl text-lg leading-8 text-slate-200 md:text-xl">
+            <p class="mb-8 max-w-xl text-lg leading-8 text-slate-700 md:text-xl">
               {{ siteSubtitle }}
             </p>
 
@@ -174,7 +174,7 @@
         <!-- Feature Tags - Centered -->
         <div class="mb-12 flex flex-wrap items-center justify-center gap-4 md:gap-6">
           <div
-            class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/90 px-5 py-2.5 shadow-sm backdrop-blur-sm"
+            class="inline-flex items-center gap-2.5 rounded-full border border-cyan-100 bg-white/80 px-5 py-2.5 shadow-sm backdrop-blur-md"
           >
             <Icon name="swap" size="sm" class="text-primary-500" />
             <span class="text-sm font-medium text-gray-700 dark:text-dark-200">{{
@@ -182,7 +182,7 @@
             }}</span>
           </div>
           <div
-            class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/90 px-5 py-2.5 shadow-sm backdrop-blur-sm"
+            class="inline-flex items-center gap-2.5 rounded-full border border-cyan-100 bg-white/80 px-5 py-2.5 shadow-sm backdrop-blur-md"
           >
             <Icon name="shield" size="sm" class="text-primary-500" />
             <span class="text-sm font-medium text-gray-700 dark:text-dark-200">{{
@@ -190,7 +190,7 @@
             }}</span>
           </div>
           <div
-            class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/90 px-5 py-2.5 shadow-sm backdrop-blur-sm"
+            class="inline-flex items-center gap-2.5 rounded-full border border-cyan-100 bg-white/80 px-5 py-2.5 shadow-sm backdrop-blur-md"
           >
             <Icon name="chart" size="sm" class="text-primary-500" />
             <span class="text-sm font-medium text-gray-700 dark:text-dark-200">{{
@@ -203,7 +203,7 @@
         <div class="mb-12 grid gap-6 md:grid-cols-3">
           <!-- Feature 1: Unified Gateway -->
           <div
-            class="group rounded-2xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-dark-700/50 dark:bg-dark-800/60"
+            class="group rounded-2xl border border-cyan-100 bg-white/72 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/30 transition-transform group-hover:scale-110"
@@ -220,7 +220,7 @@
 
           <!-- Feature 2: Account Pool -->
           <div
-            class="group rounded-2xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-dark-700/50 dark:bg-dark-800/60"
+            class="group rounded-2xl border border-cyan-100 bg-white/72 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-lg shadow-primary-500/30 transition-transform group-hover:scale-110"
@@ -249,7 +249,7 @@
 
           <!-- Feature 3: Billing & Quota -->
           <div
-            class="group rounded-2xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-dark-700/50 dark:bg-dark-800/60"
+            class="group rounded-2xl border border-cyan-100 bg-white/72 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 shadow-lg shadow-purple-500/30 transition-transform group-hover:scale-110"
