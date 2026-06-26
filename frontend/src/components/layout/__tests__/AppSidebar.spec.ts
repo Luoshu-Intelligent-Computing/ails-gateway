@@ -20,6 +20,12 @@ describe('AppSidebar custom SVG styles', () => {
 })
 
 describe('AppSidebar header styles', () => {
+  it('keeps the sidebar version badge static for branded deployments', () => {
+    expect(componentSource).toContain('<VersionBadge :version="siteVersion" />')
+    expect(componentSource).not.toContain('enable-updates')
+    expect(componentSource).not.toContain(':enable-updates')
+  })
+
   it('does not clip the version badge dropdown', () => {
     const sidebarHeaderBlockMatch = styleSource.match(/\.sidebar-header\s*\{[\s\S]*?\n {2}\}/)
     const sidebarBrandBlockMatch = componentSource.match(/\.sidebar-brand\s*\{[\s\S]*?\n\}/)
