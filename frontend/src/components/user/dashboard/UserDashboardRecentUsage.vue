@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="flex items-center justify-between border-b border-gray-100 px-6 py-4 dark:border-dark-700">
+    <div class="flex items-center justify-between border-b border-gray-100 px-6 py-4 dark:border-[#223653]">
       <h2 class="text-lg font-semibold text-gray-900 dark:text-white">{{ t('dashboard.recentUsage') }}</h2>
       <span class="badge badge-gray">{{ t('dashboard.last7Days') }}</span>
     </div>
@@ -12,7 +12,7 @@
         <EmptyState :title="t('dashboard.noUsageRecords')" :description="t('dashboard.startUsingApi')" />
       </div>
       <div v-else class="space-y-3">
-        <div v-for="log in data" :key="log.id" class="flex items-center justify-between rounded-xl bg-gray-50 p-4 transition-colors hover:bg-gray-100 dark:bg-dark-800/50 dark:hover:bg-dark-800">
+        <div v-for="log in data" :key="log.id" class="flex items-center justify-between rounded-xl border border-transparent bg-gray-50 p-4 transition-colors hover:bg-gray-100 dark:border-[#203650]/70 dark:bg-[#101f34] dark:hover:bg-[#142842]">
           <div class="flex items-center gap-4">
             <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-100 dark:bg-primary-900/30">
               <Icon name="beaker" size="md" class="text-primary-600 dark:text-primary-400" />
@@ -24,7 +24,7 @@
           </div>
           <div class="text-right">
             <p class="text-sm font-semibold">
-              <span class="text-green-600 dark:text-green-400" :title="t('dashboard.actual')">${{ formatCost(log.actual_cost) }}</span>
+              <span class="text-emerald-600 dark:text-emerald-400" :title="t('dashboard.actual')">${{ formatCost(log.actual_cost) }}</span>
               <span class="font-normal text-gray-400 dark:text-gray-500" :title="t('dashboard.standard')"> / ${{ formatCost(log.total_cost) }}</span>
             </p>
             <p class="text-xs text-gray-500 dark:text-dark-400">{{ (log.input_tokens + log.output_tokens).toLocaleString() }} tokens</p>

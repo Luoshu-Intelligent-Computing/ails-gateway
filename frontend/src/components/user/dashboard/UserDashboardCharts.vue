@@ -23,7 +23,7 @@
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
       <!-- Model Distribution Chart -->
       <div class="card relative overflow-hidden p-4">
-        <div v-if="loading" class="absolute inset-0 z-10 flex items-center justify-center bg-white/50 backdrop-blur-sm dark:bg-dark-800/50">
+        <div v-if="loading" class="absolute inset-0 z-10 flex items-center justify-center bg-white/50 backdrop-blur-sm dark:bg-[#0d1829]/70">
           <LoadingSpinner size="md" />
         </div>
         <h3 class="mb-4 text-sm font-semibold text-gray-900 dark:text-white">{{ t('dashboard.modelDistribution') }}</h3>
@@ -35,7 +35,7 @@
           <div class="max-h-48 flex-1 overflow-y-auto">
             <table class="w-full text-xs">
               <thead>
-                <tr class="text-gray-500 dark:text-gray-400">
+                <tr class="text-gray-500 dark:text-slate-400">
                   <th class="pb-2 text-left">{{ t('dashboard.model') }}</th>
                   <th class="pb-2 text-right">{{ t('dashboard.requests') }}</th>
                   <th class="pb-2 text-right">{{ t('dashboard.tokens') }}</th>
@@ -44,11 +44,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="model in models" :key="model.model" class="border-t border-gray-100 dark:border-gray-700">
+                <tr v-for="model in models" :key="model.model" class="border-t border-gray-100 dark:border-[#223653]">
                   <td class="max-w-[100px] truncate py-1.5 font-medium text-gray-900 dark:text-white" :title="model.model">{{ model.model }}</td>
-                  <td class="py-1.5 text-right text-gray-600 dark:text-gray-400">{{ formatNumber(model.requests) }}</td>
-                  <td class="py-1.5 text-right text-gray-600 dark:text-gray-400">{{ formatTokens(model.total_tokens) }}</td>
-                  <td class="py-1.5 text-right text-green-600 dark:text-green-400">${{ formatCost(model.actual_cost) }}</td>
+                  <td class="py-1.5 text-right text-gray-600 dark:text-slate-400">{{ formatNumber(model.requests) }}</td>
+                  <td class="py-1.5 text-right text-gray-600 dark:text-slate-400">{{ formatTokens(model.total_tokens) }}</td>
+                  <td class="py-1.5 text-right text-emerald-600 dark:text-emerald-400">${{ formatCost(model.actual_cost) }}</td>
                   <td class="py-1.5 text-right text-gray-400 dark:text-gray-500">${{ formatCost(model.cost) }}</td>
                 </tr>
               </tbody>

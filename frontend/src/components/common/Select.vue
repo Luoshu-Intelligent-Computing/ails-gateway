@@ -95,7 +95,7 @@
                   size="sm"
                   class="flex-shrink-0 text-gray-400"
                 />
-                <span class="select-option-label" :class="option._creatable && 'italic text-gray-500 dark:text-dark-300'">{{ getOptionLabel(option) }}</span>
+                <span class="select-option-label" :class="option._creatable && 'italic text-gray-500 dark:text-slate-300'">{{ getOptionLabel(option) }}</span>
                 <Icon
                   v-if="isSelected(option)"
                   name="check"
@@ -457,13 +457,13 @@ onUnmounted(() => {
 .select-trigger {
   @apply flex w-full items-center justify-between gap-2;
   @apply rounded-xl px-4 py-2.5 text-sm;
-  @apply bg-white/95 dark:bg-dark-800;
-  @apply border border-blue-100 dark:border-dark-600;
+  @apply bg-white/95 dark:bg-[#101f34];
+  @apply border border-blue-100 dark:border-[#223653];
   @apply text-slate-900 dark:text-gray-100;
   @apply transition-all duration-200;
   @apply shadow-sm;
   @apply focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30;
-  @apply hover:border-blue-200 dark:hover:border-dark-500;
+  @apply hover:border-blue-200 dark:hover:border-[#315176];
   @apply cursor-pointer;
 }
 
@@ -476,7 +476,7 @@ onUnmounted(() => {
 }
 
 .select-trigger-disabled {
-  @apply cursor-not-allowed bg-gray-100 opacity-60 dark:bg-dark-900;
+  @apply cursor-not-allowed bg-gray-100 opacity-60 dark:bg-[#08111f];
 }
 
 .select-value {
@@ -484,7 +484,7 @@ onUnmounted(() => {
 }
 
 .select-icon {
-  @apply flex-shrink-0 text-gray-400 dark:text-dark-400;
+  @apply flex-shrink-0 text-gray-400 dark:text-slate-400;
 }
 
 .select-clear {
@@ -497,9 +497,9 @@ onUnmounted(() => {
 <style>
 .select-dropdown-portal {
   @apply w-max min-w-[200px];
-  @apply bg-white dark:bg-dark-800;
+  @apply bg-white dark:bg-[#0f1b2d];
   @apply rounded-xl;
-  @apply border border-blue-100 dark:border-dark-700;
+  @apply border border-blue-100 dark:border-[#223653];
   @apply shadow-lg shadow-primary-500/10 dark:shadow-black/30;
   @apply overflow-hidden;
   pointer-events: auto !important;
@@ -507,13 +507,13 @@ onUnmounted(() => {
 
 .select-dropdown-portal .select-search {
   @apply flex items-center gap-2 px-3 py-2;
-  @apply border-b border-blue-100 dark:border-dark-700;
+  @apply border-b border-blue-100 dark:border-[#223653];
 }
 
 .select-dropdown-portal .select-search-input {
   @apply flex-1 bg-transparent text-sm;
   @apply text-gray-900 dark:text-gray-100;
-  @apply placeholder:text-gray-400 dark:placeholder:text-dark-400;
+  @apply placeholder:text-gray-400 dark:placeholder:text-slate-500;
   @apply focus:outline-none;
 }
 
@@ -526,17 +526,17 @@ onUnmounted(() => {
   @apply px-4 py-2.5 text-sm;
   @apply text-slate-700 dark:text-gray-300;
   @apply cursor-pointer transition-colors duration-150;
-  @apply hover:bg-blue-50 dark:hover:bg-dark-700;
+  @apply hover:bg-blue-50 dark:hover:bg-[#16263d];
   pointer-events: auto !important;
 }
 
 .select-dropdown-portal .select-option-selected {
-  @apply bg-primary-50 dark:bg-primary-900/20;
-  @apply text-primary-700 dark:text-primary-300;
+  @apply bg-primary-50 dark:bg-primary-500/15;
+  @apply text-primary-700 dark:text-[#9cc9ff];
 }
 
 .select-dropdown-portal .select-option-focused {
-  @apply bg-blue-50 dark:bg-dark-700;
+  @apply bg-blue-50 dark:bg-[#16263d];
 }
 
 .select-dropdown-portal .select-option-disabled {
@@ -545,13 +545,13 @@ onUnmounted(() => {
 
 .select-dropdown-portal .select-option-group {
   @apply cursor-default select-none;
-  @apply bg-blue-50/70 dark:bg-dark-900;
+  @apply bg-blue-50/70 dark:bg-[#08111f];
   @apply text-[11px] font-bold uppercase tracking-wider;
   @apply text-gray-500 dark:text-gray-400;
 }
 
 .select-dropdown-portal .select-option-group:hover {
-  @apply bg-blue-50/70 dark:bg-dark-900;
+  @apply bg-blue-50/70 dark:bg-[#08111f];
 }
 
 .select-dropdown-portal .select-option-label {
@@ -560,7 +560,7 @@ onUnmounted(() => {
 
 .select-dropdown-portal .select-empty {
   @apply px-4 py-8 text-center text-sm;
-  @apply text-gray-500 dark:text-dark-400;
+  @apply text-gray-500 dark:text-slate-400;
 }
 
 .select-dropdown-enter-active,
