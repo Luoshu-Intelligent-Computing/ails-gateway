@@ -304,7 +304,7 @@ func (s *AuthService) SendVerifyCode(ctx context.Context, email string, locale .
 
 	// 发送验证码
 	if s.emailService == nil {
-		return errors.New("email service not configured")
+		return ErrEmailNotConfigured
 	}
 
 	// 获取网站名称
@@ -348,6 +348,14 @@ func (s *AuthService) SendVerifyCodeAsync(ctx context.Context, email string, loc
 	if s.emailQueueService == nil {
 		logger.LegacyPrintf("service.auth", "%s", "[Auth] Email queue service not configured")
 		return nil, errors.New("email queue service not configured")
+	}
+	if s.emailService == nil {
+		logger.LegacyPrintf("service.auth", "%s", "[Auth] Email service not configured")
+		return nil, ErrEmailNotConfigured
+	}
+	if _, err := s.emailService.GetSMTPConfig(ctx); err != nil {
+		logger.LegacyPrintf("service.auth", "[Auth] SMTP config unavailable before enqueueing verify code: %v", err)
+		return nil, err
 	}
 
 	// 获取网站名称

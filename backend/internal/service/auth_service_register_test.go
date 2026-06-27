@@ -430,6 +430,21 @@ func TestAuthService_SendVerifyCode_EmailSuffixNotAllowed(t *testing.T) {
 	require.Equal(t, "2", appErr.Metadata["allowed_suffix_count"])
 }
 
+func TestAuthService_SendVerifyCodeAsync_SMTPNotConfigured(t *testing.T) {
+	repo := &userRepoStub{}
+	service := newAuthService(repo, map[string]string{
+		SettingKeyRegistrationEnabled: "true",
+		SettingKeyEmailVerifyEnabled:  "true",
+	}, &emailCacheStub{}, nil)
+	service.emailQueueService = &EmailQueueService{taskChan: make(chan EmailTask, 1)}
+
+	result, err := service.SendVerifyCodeAsync(context.Background(), "user@example.com")
+
+	require.Nil(t, result)
+	require.ErrorIs(t, err, ErrEmailNotConfigured)
+	require.Empty(t, service.emailQueueService.taskChan)
+}
+
 func TestAuthService_Register_CreateError(t *testing.T) {
 	repo := &userRepoStub{createErr: errors.New("create failed")}
 	service := newAuthService(repo, map[string]string{

@@ -41,6 +41,17 @@ describe('buildAuthErrorMessage', () => {
     expect(message).toBe('error message')
   })
 
+  it('maps known auth error reasons to friendly messages', () => {
+    const message = buildAuthErrorMessage(
+      {
+        reason: 'EMAIL_NOT_CONFIGURED',
+        message: 'email service not configured'
+      },
+      { fallback: 'fallback' }
+    )
+    expect(message).toBe('邮件服务未配置，请联系管理员配置 SMTP 后重试。')
+  })
+
   it('uses fallback when no message can be extracted', () => {
     expect(buildAuthErrorMessage({}, { fallback: 'fallback' })).toBe('fallback')
   })
